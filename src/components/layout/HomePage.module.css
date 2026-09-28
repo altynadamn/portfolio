@@ -1,0 +1,42 @@
+/*
+ * Page frame (no side rails — removed by the user). Fonts are resolved here
+ * because next/font defines --font-* on <html> (see fonts.ts).
+ */
+.frame {
+  /* Latin glyphs from Instrument Sans, Cyrillic from Onest (see fonts.ts). */
+  --ff-display: var(--font-display), var(--font-cyrillic, var(--font-display-fallback)), var(--font-display-fallback);
+  --ff-mono: var(--font-mono), var(--font-mono-fallback);
+
+  position: relative;
+  z-index: var(--z-content);
+  width: min(var(--frame-max), 100% - 2 * var(--frame-inset));
+  min-height: 100dvh;
+  margin-inline: auto;
+  font-family: var(--ff-display);
+  /* Dark halo: lifts text off the ASCII glyphs behind it (invisible on plain bg). */
+  text-shadow:
+    0 0 0.35em rgb(8 9 10 / 0.95),
+    0 0 1.2em rgb(8 9 10 / 0.8);
+  /* Transparent on purpose: the ASCII canvas renders behind the frame. */
+}
+
+.main {
+  outline: none;
+}
+
+.skip {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  z-index: var(--z-overlay);
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--ff-mono);
+  font-size: var(--text-meta);
+  background: var(--fg);
+  color: var(--bg);
+  translate: 0 -200%;
+}
+
+.skip:focus-visible {
+  translate: 0 0;
+}

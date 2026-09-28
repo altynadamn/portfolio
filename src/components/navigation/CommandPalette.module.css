@@ -1,0 +1,26 @@
+.dialog {
+  position: fixed;
+  inset: 12vh 1rem auto;
+  width: min(34rem, calc(100vw - 2rem));
+  max-height: min(70vh, 36rem);
+  padding: 0;
+  border: var(--hairline) solid var(--border-strong);
+  background: var(--surface-1);
+  color: var(--fg);
+}
+
+.dialog::backdrop {
+  background: rgb(0 0 0 / 0.7);
+}
+
+.panel { padding: var(--space-5); }
+.searchLabel { display: block; margin-bottom: var(--space-2); font: var(--text-label) var(--ff-mono); color: var(--fg-muted); text-transform: uppercase; letter-spacing: var(--tracking-label); }
+.search { width: 100%; padding: var(--space-3); border: var(--hairline) solid var(--border); background: var(--bg); outline-offset: 2px; }
+.list { display: grid; gap: 2px; max-height: 48vh; overflow-y: auto; margin: var(--space-3) 0 0; padding: 0; list-style: none; }
+.list a { display: flex; justify-content: space-between; padding: var(--space-3); color: var(--fg-muted); font-family: var(--ff-mono); }
+.list a:hover, .list a:focus-visible { background: var(--surface-3); color: var(--fg); }
+.list a span:last-child { color: var(--accent); }
+.empty, .hint { color: var(--fg-subtle); font: var(--text-label) var(--ff-mono); }
+.empty { padding: var(--space-3); }
+.hint { display: flex; align-items: center; gap: var(--space-2); margin: var(--space-4) 0 0; }
+.hint kbd { padding: 0.1rem 0.3rem; border: var(--hairline) solid var(--border); color: var(--fg-muted); }

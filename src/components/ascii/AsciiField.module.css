@@ -1,0 +1,32 @@
+.canvas {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-canvas);
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-out);
+}
+
+.canvas[data-ready="true"] {
+  opacity: 1;
+}
+
+/*
+ * Readability: the field fades to ~45% behind the content column and keeps
+ * full strength at the edges. A static CSS mask — composited, no per-frame cost.
+ */
+@media (min-width: 64rem) {
+  .canvas {
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, rgb(0 0 0 / 0.45) 22%, rgb(0 0 0 / 0.45) 78%, #000 100%);
+    mask-image: linear-gradient(90deg, #000 0%, rgb(0 0 0 / 0.45) 22%, rgb(0 0 0 / 0.45) 78%, #000 100%);
+  }
+}
+
+/* Narrow screens: text spans the width, so dim the field evenly. */
+@media (max-width: 63.99rem) {
+  .canvas[data-ready="true"] {
+    opacity: 0.6;
+  }
+}

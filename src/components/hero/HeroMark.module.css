@@ -1,0 +1,98 @@
+.mark {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.mark path,
+.mark rect {
+  vector-effect: non-scaling-stroke;
+}
+
+.centre {
+  stroke: rgb(255 255 255 / 0.05);
+  stroke-width: 1;
+  stroke-dasharray: 6 2 1 2; /* chain line */
+}
+
+.hidden {
+  stroke: rgb(255 255 255 / 0.1);
+  stroke-width: 1;
+  stroke-dasharray: 2 2;
+}
+
+.depth {
+  stroke: rgb(255 255 255 / 0.22);
+  stroke-width: 1;
+}
+
+.front {
+  stroke: rgb(255 255 255 / 0.5);
+  stroke-width: 1;
+}
+
+.nodes rect {
+  fill: var(--bg);
+  stroke: rgb(255 255 255 / 0.4);
+  stroke-width: 1;
+}
+
+/* Illuminated layer — visibility controlled by the #zh-light mask. */
+.lit {
+  opacity: var(--lit, 0);
+}
+
+.litHidden {
+  stroke: var(--accent);
+  stroke-opacity: 0.55;
+  stroke-width: 1;
+  stroke-dasharray: 2 2;
+}
+
+.litDepth {
+  stroke: var(--accent);
+  stroke-width: 1.25;
+}
+
+.litFront {
+  stroke: #fff;
+  stroke-width: 1.75;
+}
+
+.litNodes rect {
+  fill: var(--accent);
+  stroke: var(--accent);
+  stroke-width: 1;
+}
+
+.dim path {
+  stroke: rgb(255 255 255 / 0.2);
+  stroke-width: 1;
+}
+
+.dim .ext {
+  stroke: rgb(255 255 255 / 0.09);
+}
+
+.dim text {
+  font-family: var(--ff-mono);
+  font-size: 5.5px;
+  letter-spacing: 0.08em;
+  fill: var(--fg-muted);
+}
+
+.origin {
+  fill: var(--accent);
+}
+
+.leader {
+  stroke: var(--accent-line);
+  stroke-width: 1;
+}
+
+.leaderLabel {
+  font-family: var(--ff-mono);
+  font-size: 5px;
+  letter-spacing: 0.08em;
+  fill: var(--fg-muted);
+}

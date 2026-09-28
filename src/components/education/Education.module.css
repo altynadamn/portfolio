@@ -1,0 +1,12 @@
+/* Let the heading's spans participate in the parent row grid. */
+.contents {
+  display: contents;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+.details {
+  display: grid;
+  gap: var(--space-2);
+  color: var(--fg-muted);
+}

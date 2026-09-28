@@ -1,0 +1,148 @@
+/* Compact rows shared by Experience and Education — no rules, hover carries state. */
+
+.item {
+  position: relative;
+}
+
+.heading {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+  grid-template-areas:
+    "index main   toggle"
+    ".     period .";
+  column-gap: var(--space-3);
+  row-gap: var(--space-2);
+  align-items: center;
+  width: 100%;
+  padding: var(--space-4) var(--frame-pad);
+  text-align: left;
+}
+
+.button {
+  transition: background-color var(--dur-base) var(--ease-out);
+}
+
+.button:hover {
+  background: rgb(255 255 255 / 0.025);
+}
+
+.button:focus-visible {
+  outline-offset: -4px;
+}
+
+.index {
+  grid-area: index;
+  font-family: var(--ff-mono);
+  font-size: var(--text-meta);
+  color: var(--fg-subtle);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.main {
+  grid-area: main;
+  display: grid;
+  gap: 0.125rem;
+}
+
+.title {
+  font-size: var(--text-lg);
+  font-weight: 500;
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-heading);
+  color: var(--fg);
+}
+
+.subtitle {
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+}
+
+.period {
+  grid-area: period;
+  font-family: var(--ff-mono);
+  font-size: var(--text-meta);
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+
+.toggle {
+  grid-area: toggle;
+  justify-self: end;
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: var(--hairline) solid var(--border);
+  font-family: var(--ff-mono);
+  font-size: var(--text-md);
+  line-height: 1;
+  color: var(--fg-muted);
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    rotate var(--dur-slow) var(--ease-out);
+}
+
+.sign {
+  display: block;
+}
+
+.button:hover .toggle {
+  color: var(--fg);
+  border-color: var(--border-hover);
+}
+
+.button:hover .index,
+.item[data-open="true"] .index {
+  color: var(--accent);
+}
+
+.item[data-open="true"] .toggle {
+  color: var(--accent);
+  border-color: var(--accent-line);
+  rotate: 180deg;
+}
+
+/* Height animation without measuring: grid rows 0fr → 1fr. */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-slow) var(--ease-out);
+}
+
+.item[data-open="true"] .panel {
+  grid-template-rows: 1fr;
+}
+
+.panelInner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.panelContent {
+  padding: var(--space-2) var(--frame-pad) var(--space-7) calc(var(--frame-pad) + 2.5rem + var(--space-3));
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+
+.item[data-open="true"] .panelContent {
+  opacity: 1;
+}
+
+@media (min-width: 48rem) {
+  .row {
+    grid-template-columns: 4rem minmax(0, 1fr) auto 1.75rem;
+    grid-template-areas: "index main period toggle";
+    column-gap: var(--space-6);
+  }
+
+  .panelContent {
+    padding-left: calc(var(--frame-pad) + 4rem + var(--space-6));
+    padding-right: calc(var(--frame-pad) + 12rem);
+  }
+}

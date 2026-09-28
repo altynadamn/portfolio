@@ -1,0 +1,36 @@
+/* Open, asymmetric composition; the empty regions are ASCII territory. */
+.stage {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  padding: var(--space-8) var(--frame-pad) var(--space-10);
+}
+
+.greeting {
+  grid-column: 1 / -1;
+  font-size: var(--text-statement);
+  font-weight: 500;
+  line-height: 0.88;
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  font-variation-settings: "wdth" var(--wdth-display);
+}
+
+.greetLine {
+  display: block;
+}
+
+.greetMuted {
+  color: var(--fg-muted);
+}
+
+@media (min-width: 48rem) {
+  .greeting {
+    grid-column: 3 / -1;
+  }
+}
+
+@media (min-width: 64rem) {
+  .greeting {
+    grid-column: 6 / -1;
+  }
+}

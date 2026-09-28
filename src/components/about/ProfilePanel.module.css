@@ -1,0 +1,116 @@
+.profile {
+  display: grid;
+  gap: var(--space-5);
+  padding: 0 var(--frame-pad);
+}
+
+/* ── Icon links row ───────────────────────────────────────────── */
+
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.iconLink {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: var(--hairline) solid var(--border-strong);
+  border-radius: 6px;
+  background: var(--surface-1);
+  color: var(--fg-muted);
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
+}
+
+.iconLink svg {
+  width: 18px;
+  height: 18px;
+}
+
+.iconLink:hover {
+  color: var(--fg);
+  border-color: var(--border-hover);
+  background: var(--surface-2);
+}
+
+/* ── Info rows ────────────────────────────────────────────────── */
+
+.info {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border-block: var(--hairline) solid var(--border);
+  background: rgb(8 9 10 / 0.72); /* keeps mono rows readable over the field */
+}
+
+.column {
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+  padding-block: var(--space-4);
+}
+
+.columnRight {
+  border-top: var(--hairline) dashed var(--border);
+}
+
+.rowContent {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-width: 0;
+  font-family: var(--ff-mono);
+  font-size: var(--text-sm);
+  color: var(--fg);
+}
+
+.rowIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border: var(--hairline) solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-1);
+  color: var(--fg-muted);
+}
+
+.rowText {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.at {
+  font-weight: 400;
+  color: var(--fg);
+}
+
+.link {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size var(--dur-base) var(--ease-out);
+}
+
+.link:hover {
+  background-size: 100% 1px;
+}
+
+.offset {
+  color: var(--fg-muted);
+}
+
+@media (min-width: 48rem) {
+  .info {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .columnRight {
+    border-top: 0;
+    border-left: var(--hairline) dashed var(--border);
+    padding-left: var(--space-6);
+  }
+}

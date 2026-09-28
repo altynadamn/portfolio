@@ -1,0 +1,31 @@
+.switch {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--ff-mono);
+  font-size: var(--text-label);
+  letter-spacing: var(--tracking-label);
+}
+
+.item {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.sep {
+  margin-inline: var(--space-2);
+  color: var(--fg-subtle);
+}
+
+.link {
+  padding-block: var(--space-2);
+  color: var(--fg-subtle);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.link:hover {
+  color: var(--fg);
+}
+
+.link[aria-current="page"] {
+  color: var(--fg);
+}

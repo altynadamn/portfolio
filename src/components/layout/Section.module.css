@@ -1,0 +1,117 @@
+.section {
+  position: relative;
+  padding-top: clamp(6rem, 4rem + 8vw, 11rem);
+}
+
+.dense {
+  padding-top: clamp(4rem, 3rem + 4vw, 7rem);
+}
+
+/* ── Label: technical metadata, not a headline ────────────────── */
+
+.label {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: 0 var(--frame-pad) var(--space-6);
+  font-family: var(--ff-mono);
+  font-size: var(--text-label);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+}
+
+.number {
+  color: var(--accent);
+  letter-spacing: 0;
+}
+
+.slash {
+  color: var(--fg-subtle);
+}
+
+/* The section name is a real heading; number + meta stay technical. */
+.title {
+  margin-left: var(--space-2);
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 1.1rem + 3vw, 3.75rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: var(--tracking-heading);
+  text-transform: none;
+  color: var(--fg);
+}
+
+.meta {
+  margin-left: auto;
+  color: var(--fg-subtle);
+  text-align: right;
+}
+
+/* ── Opener: numeral + display statement, mostly empty space ──── */
+
+.opener {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  align-content: end;
+  min-height: 52svh;
+  padding: var(--space-8) var(--frame-pad) var(--space-9);
+  overflow: hidden;
+}
+
+.numeral {
+  position: absolute;
+  top: 0;
+  right: var(--frame-pad);
+  font-size: var(--text-numeral);
+  font-weight: 500;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  font-variation-settings: "wdth" var(--wdth-display);
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(255 255 255 / 0.09);
+  user-select: none;
+  pointer-events: none;
+}
+
+.statement {
+  grid-column: 1 / -1;
+  font-size: var(--text-statement);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  font-variation-settings: "wdth" var(--wdth-display);
+}
+
+.statementLine {
+  display: block;
+}
+
+.statementLine:nth-child(even) {
+  padding-left: 0.5em;
+  color: var(--fg-muted);
+}
+
+.body {
+  padding: 0 var(--frame-pad);
+}
+
+@media (min-width: 48rem) {
+  .opener {
+    min-height: 68svh;
+  }
+}
+
+@media (min-width: 64rem) {
+  .statement {
+    grid-column: 2 / span 10;
+  }
+}
+
+/* Narrow screens: the heading carries the section; metadata would only wrap. */
+@media (max-width: 39.99rem) {
+  .meta {
+    display: none;
+  }
+}
